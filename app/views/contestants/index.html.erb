@@ -6,3 +6,8 @@
   Hometown: <%= contestant.hometown %><br>
 <% end %>
 </div>
+<div id="home-town">
+<% @contestants.hometowns(@contestants.first.bachelorette_id).each do |place| %>
+  <%= place %>
+<% end %>
+</div>
