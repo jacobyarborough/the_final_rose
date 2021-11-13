@@ -5,8 +5,8 @@ Date: <%= @outing.date %><br>
 </p>
 <p>
 Number of Contestants: <%= @outing.contestants.count %><br>
-Contestans:<br>
+Contestants:<br>
 <% @outing.contestants.each do |contestant| %>
-  <% contestant.name %><br>
+  <%= contestant.name %><br>
 <% end %>
 </p>
