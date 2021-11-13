@@ -14,7 +14,7 @@ RSpec.describe 'bechelorette show page' do
     @c3.outings << @o1
   end 
   it 'shows the associated attributes for a bachelorette' do 
-    visit bacheloratte_path(@b1)
+    visit bachelorette_path(@b1)
 
     expect(page).to have_content(@b1.name)
     expect(page).to have_content(@b1.season_number)
@@ -22,10 +22,10 @@ RSpec.describe 'bechelorette show page' do
   end 
 
   it 'contains a link formatted as their name that routes to a page of contestants' do 
-    visit bacheloratte_path(@b1)
+    visit bachelorette_path(@b1)
 
-    click_link "#{@b1.name}"
+    click_on "See Contestants"
 
-    expect(current_path).to eq()
+    expect(current_path).to eq(bachelorette_contestants_path(@b1))
   end 
 end 
