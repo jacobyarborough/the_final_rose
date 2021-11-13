@@ -12,20 +12,22 @@ RSpec.describe 'bechelorette show page' do
     @c2.outings << @o1
     @c2.outings << @o2
     @c3.outings << @o1
-  end 
-  it 'shows the associated attributes for a bachelorette' do 
     visit bachelorette_path(@b1)
+  end 
 
+  it 'shows the associated attributes for a bachelorette' do 
     expect(page).to have_content(@b1.name)
     expect(page).to have_content(@b1.season_number)
     expect(page).to have_content(@b1.description)
   end 
 
   it 'contains a link formatted as their name that routes to a page of contestants' do 
-    visit bachelorette_path(@b1)
-
     click_on "See Contestants"
 
     expect(current_path).to eq(bachelorette_contestants_path(@b1))
+  end 
+
+  it 'shows the average age of the contestants for that season' do 
+    expect(page).to have_content("Average Contestant Age: 28.67")
   end 
 end 
