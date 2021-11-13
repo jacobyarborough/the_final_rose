@@ -6,4 +6,8 @@ class ContestantsController < ApplicationController
       @contestants = Contestant.all
     end
   end 
+
+  def show 
+    @contestant = Contestant.find(params[:id])
+  end 
 end 
